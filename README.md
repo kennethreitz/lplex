@@ -15,17 +15,18 @@ You can then move `lplex` and `lplex.zip` wherever you like.
 Usage
 -----
 
-Configure logplex with the disired prefix and token:
-
-    $ lplex init TOKEN
 
 Send a message:
 
-    $ lplex test
+    $ lplex hello world!
+    
+Send a message with a given token:
 
-Logplex output of all above:
+    $ lplex hello world! --token=$LOG_TOKEN --proc=lplex
 
-    2013-07-16T07:44:15+00:00 app[python-logplex]: test
+Logplex output:
+
+    2013-07-16T07:44:15+00:00 app[lplex]: hello world!
 
 Configuration
 -------------
