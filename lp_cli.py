@@ -4,7 +4,7 @@
 Logplex instrumentation.
 
 Usage:
-  lplex <message> [--proc=<proc>] [--token=<token>]
+  lplex <message>... [--proc=<proc>] [--token=<token>]
   lplex -h | --help
 
 Options:
@@ -25,9 +25,10 @@ LOGPLEX_URL = os.environ.get('LOGPLEX_URL')
 
 def dispatch_cli(args):
 
-    message = args.get('<message>')
+    message = ' '.join(args.get('<message>', []))
     proc = args.get('--proc') or 'buildpack'
     token = args.get('--token', LOG_TOKEN)
+
 
     lp = Logplex(token=token, url=LOGPLEX_URL)
     lp.procid = proc
