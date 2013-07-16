@@ -21,16 +21,16 @@ from logplex import Logplex
 from docopt import docopt
 
 LOG_TOKEN = os.environ.get('LOG_TOKEN')
+LOGPLEX_URL = os.environ.get('LOGPLEX_URL')
 
 def dispatch_cli(args):
 
-    message = args.get('<proc>')
-    proc = args.get('<proc>') or 'buildpack'
-    token = args.get('<token>') or LOG_TOKEN
+    message = args.get('<message>')
+    proc = args.get('--proc') or 'buildpack'
+    token = args.get('--token', LOG_TOKEN)
 
-    lp = Logplex(token=token)
+    lp = Logplex(token=token, url=LOGPLEX_URL)
     lp.procid = proc
-
     lp.puts(message)
 
 
@@ -39,6 +39,7 @@ def main():
     try:
         dispatch_cli(arguments)
     except Exception:
+        raise
         exit()
 
 
