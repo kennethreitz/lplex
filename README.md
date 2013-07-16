@@ -33,5 +33,5 @@ Configuration
 
 By default, `lplex` requires that its distro (`lplex.zip`) is next to the executable. This is configurable with the `LPLEX_DISTRO_PATH` environment variable.
 
-    $ export LPLEX_DISTRO_PATH=/tmp/bpwatch.zip
+    $ export LPLEX_DISTRO_PATH=/tmp/lplex.zip
 
